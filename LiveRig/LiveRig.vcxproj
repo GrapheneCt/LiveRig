@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|PSVita">
+      <Configuration>Debug</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|PSVita">
+      <Configuration>Release</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LRCamera.cpp" />
+    <ClCompile Include="LRCubismAllocator.cpp" />
+    <ClCompile Include="LRFace.cpp" />
+    <ClCompile Include="LRGXM.cpp" />
+    <ClCompile Include="LRInput.cpp" />
+    <ClCompile Include="LRMain.cpp" />
+    <ClCompile Include="LRAppLevel.cpp" />
+    <ClCompile Include="LRModel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LRCamera.hpp" />
+    <ClInclude Include="LRCubismAllocator.hpp" />
+    <ClInclude Include="LRFace.hpp" />
+    <ClInclude Include="LRGXM.hpp" />
+    <ClInclude Include="LRInput.hpp" />
+    <ClInclude Include="LRModel.hpp" />
+    <ClInclude Include="LRUtil.hpp" />
+    <ClInclude Include="LRAppLevel.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PSVita'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(DebuggerFlavor)'=='PSVitaDebugger'" Label="OverrideDebuggerDefaults">
+    <!--LocalDebuggerCommand>$(TargetPath)</LocalDebuggerCommand-->
+    <!--LocalDebuggerReboot>false</LocalDebuggerReboot-->
+    <!--LocalDebuggerCommandArguments></LocalDebuggerCommandArguments-->
+    <!--LocalDebuggerTarget></LocalDebuggerTarget-->
+    <!--LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory-->
+    <!--LocalMappingFile></LocalMappingFile-->
+    <!--LocalRunCommandLine></LocalRunCommandLine-->
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|PSVita'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PSVita'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CppLanguageStd>Cpp11</CppLanguageStd>
+      <AdditionalIncludeDirectories>$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\user;$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\common;$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\user\live2d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>-lLive2DCubismCore;-lLive2DCubismFramework;-lSceCommonDialog_stub;-lSceCamera_stub;-lSceCtrl_stub;-lSceFace_stub;-lSceDbg_stub;-lSceDisplay_stub;-lSceDisplayUser_stub;-lSceGxmInternalForTest_stub;-lSceGxm_stub;-lSceSysmodule_stub;-lvita2d_sys_stub;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Link>
+      <AdditionalLibraryDirectories>$(SCE_PSP2_SDK_DIR)\target\lib\vdsuite;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateSnMapFile>FullMapFile</GenerateSnMapFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(SCE_PSP2_SDK_DIR)/host_tools/build/bin/vdsuite-pubprx.exe" "$(LocalDebuggerCommand)" "$(OutDir)eboot.bin"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|PSVita'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <OptimizationLevel>Level3</OptimizationLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CppLanguageStd>Cpp11</CppLanguageStd>
+      <AdditionalIncludeDirectories>$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\user;$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\common;$(SCE_PSP2_SDK_DIR)\target\include\vdsuite\user\live2d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>-lLive2DCubismCore;-lLive2DCubismFramework;-lSceCommonDialog_stub;-lSceCamera_stub;-lSceCtrl_stub;-lSceFace_stub;-lSceDbg_stub;-lSceDisplay_stub;-lSceDisplayUser_stub;-lSceGxmInternalForTest_stub;-lSceGxm_stub;-lSceSysmodule_stub;-lvita2d_sys_stub;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SCE_PSP2_SDK_DIR)\target\lib\vdsuite;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>"$(SCE_PSP2_SDK_DIR)/host_tools/build/bin/vdsuite-pubprx.exe" "$(LocalDebuggerCommand)" "$(OutDir)eboot.bin"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Condition="'$(ConfigurationType)' == 'Makefile' and Exists('$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets')" Project="$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

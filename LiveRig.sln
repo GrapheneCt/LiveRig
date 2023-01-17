@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1401
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiveRig", "LiveRig\LiveRig.vcxproj", "{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|PSVita = Debug|PSVita
+		Release|PSVita = Release|PSVita
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}.Debug|PSVita.ActiveCfg = Debug|PSVita
+		{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}.Debug|PSVita.Build.0 = Debug|PSVita
+		{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}.Release|PSVita.ActiveCfg = Release|PSVita
+		{877992B6-B6CE-4D7B-B3EA-A0203C9D2FFB}.Release|PSVita.Build.0 = Release|PSVita
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B653F31-B09A-47CB-A410-D5AE994FE758}
+	EndGlobalSection
+EndGlobal
